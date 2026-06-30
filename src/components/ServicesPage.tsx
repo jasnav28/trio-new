@@ -1724,10 +1724,10 @@ export default function ServicesPage({ theme: _theme, onGoHome }: { theme?: "lig
             {/* Sidebar Header */}
             <div className="p-4 border-b border-neutral-200 dark:border-neutral-900 flex items-center justify-between">
               <div className="flex items-center gap-2 font-bold text-neutral-800 dark:text-neutral-200 text-sm">
-                <BookOpen className="w-4 h-4 text-[#7342E2]" />
+                <BookOpen className="w-4 h-4 text-[#2545F3]" />
                 <span>Services Outline</span>
               </div>
-              <div className="bg-[#7342E2]/15 text-[#7342E2] dark:text-[#a882fa] text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">
+              <div className="bg-[#2545F3]/15 text-[#2545F3] dark:text-[#60a5fa] text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">
                 Live
               </div>
             </div>
@@ -1741,7 +1741,7 @@ export default function ServicesPage({ theme: _theme, onGoHome }: { theme?: "lig
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search services outline..."
-                  className="w-full pl-9 pr-4 py-2 bg-neutral-100 dark:bg-zinc-900 border border-neutral-200 dark:border-zinc-800 rounded-xl text-xs text-neutral-800 dark:text-neutral-200 placeholder-neutral-400 focus:outline-none focus:border-[#7342E2] transition-colors"
+                  className="w-full pl-9 pr-4 py-2 bg-neutral-100 dark:bg-zinc-900 border border-neutral-200 dark:border-zinc-800 rounded-xl text-xs text-neutral-800 dark:text-neutral-200 placeholder-neutral-400 focus:outline-none focus:border-[#2545F3] transition-colors"
                 />
               </div>
             </div>
@@ -1791,7 +1791,7 @@ export default function ServicesPage({ theme: _theme, onGoHome }: { theme?: "lig
                                     }}
                                     className={`w-full text-left py-2.5 px-4 flex items-center justify-between text-xs transition-colors cursor-pointer border-l-2 ${
                                       isSelected 
-                                        ? "bg-[#7342E2]/10 text-[#7342E2] dark:bg-[#7342E2]/20 dark:text-[#a882fa] border-l-[#7342E2] font-semibold" 
+                                        ? "bg-[#2545F3]/10 text-[#2545F3] dark:bg-[#2545F3]/20 dark:text-[#60a5fa] border-l-[#2545F3] font-semibold" 
                                         : "text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-zinc-900/40 hover:text-neutral-900 dark:hover:text-white border-l-transparent"
                                     }`}
                                   >
@@ -1852,14 +1852,14 @@ export default function ServicesPage({ theme: _theme, onGoHome }: { theme?: "lig
                       }
                     }}
                     title="Back to Home"
-                    className="p-1 rounded hover:bg-neutral-200 dark:hover:bg-neutral-855 text-neutral-400 hover:text-[#7342E2] dark:hover:text-[#a882fa] transition-colors cursor-pointer"
+                    className="p-1 rounded hover:bg-neutral-200 dark:hover:bg-neutral-855 text-neutral-400 hover:text-[#2545F3] dark:hover:text-[#60a5fa] transition-colors cursor-pointer"
                   >
                     <Home className="w-4 h-4" />
                   </button>
                 </div>
                 <span className="h-4 w-px bg-neutral-200 dark:bg-zinc-800" />
                 <div className="flex items-center gap-1 text-[11px] font-bold text-neutral-500">
-                  <span className="px-1.5 py-0.5 rounded bg-neutral-200 dark:bg-zinc-800 text-[#7342E2] dark:text-[#a882fa] text-[10px]">EN</span>
+                  <span className="px-1.5 py-0.5 rounded bg-neutral-200 dark:bg-zinc-800 text-[#2545F3] dark:text-[#60a5fa] text-[10px]">EN</span>
                 </div>
               </div>
             </div>
@@ -1873,7 +1873,7 @@ export default function ServicesPage({ theme: _theme, onGoHome }: { theme?: "lig
                   activeService.tag === "POPULAR" 
                     ? "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20"
                     : activeService.tag === "RECOMMENDED"
-                    ? "bg-[#7342E2]/10 text-[#7342E2] dark:text-[#a882fa] border-[#7342E2]/20"
+                    ? "bg-[#2545F3]/10 text-[#2545F3] dark:text-[#60a5fa] border-[#2545F3]/20"
                     : activeService.tag === "MANDATORY"
                     ? "bg-red-500/10 text-red-600 dark:text-red-400 border-red-500/20"
                     : activeService.tag === "FAST TRACK"
@@ -1893,7 +1893,7 @@ export default function ServicesPage({ theme: _theme, onGoHome }: { theme?: "lig
                 {/* Clean Professional Pricing Badge */}
                 <div className="flex items-center gap-2 mt-1 text-xs text-neutral-600 dark:text-neutral-300 font-semibold">
                   <span className="text-neutral-400 font-normal">Filing Fee starts at:</span>
-                  <span className="text-[#7342E2] dark:text-[#a882fa] text-sm font-bold bg-[#7342E2]/10 px-2 py-0.5 rounded-md">
+                  <span className="text-[#2545F3] dark:text-[#60a5fa] text-sm font-bold bg-[#2545F3]/10 px-2 py-0.5 rounded-md">
                     ₹{activeService.price}
                   </span>
                 </div>
@@ -1933,7 +1933,7 @@ export default function ServicesPage({ theme: _theme, onGoHome }: { theme?: "lig
               {/* SECTION 2: Required Documents */}
               <div className="space-y-4">
                 <div className="flex items-center gap-2.5 pb-2 border-b border-neutral-100 dark:border-zinc-900">
-                  <FileText className="w-5 h-5 text-[#7342E2]" />
+                  <FileText className="w-5 h-5 text-[#2545F3]" />
                   <h3 className="text-sm font-bold text-neutral-855 dark:text-neutral-200 uppercase tracking-wider">
                     Required Checklist Documents
                   </h3>
@@ -1964,7 +1964,7 @@ export default function ServicesPage({ theme: _theme, onGoHome }: { theme?: "lig
               {activeService.steps && activeService.steps.length > 0 && (
                 <div className="space-y-6">
                   <div className="flex items-center gap-2.5 pb-2 border-b border-neutral-100 dark:border-zinc-900">
-                    <Zap className="w-5 h-5 text-[#7342E2]" />
+                    <Zap className="w-5 h-5 text-[#2545F3]" />
                     <h3 className="text-sm font-bold text-neutral-855 dark:text-neutral-200 uppercase tracking-wider">
                       Registration Process
                     </h3>
@@ -1978,12 +1978,12 @@ export default function ServicesPage({ theme: _theme, onGoHome }: { theme?: "lig
                       
                       return (
                         <div key={idx} className="relative group">
-                          <div className="absolute -left-[31px] top-1.5 w-4.5 h-4.5 rounded-full border border-neutral-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 flex items-center justify-center group-hover:border-[#7342E2] transition-colors duration-300">
-                            <div className="w-2 h-2 rounded-full bg-[#7342E2]/30 group-hover:bg-[#7342E2] transition-colors duration-300" />
+                          <div className="absolute -left-[31px] top-1.5 w-4.5 h-4.5 rounded-full border border-neutral-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 flex items-center justify-center group-hover:border-[#2545F3] transition-colors duration-300">
+                            <div className="w-2 h-2 rounded-full bg-[#2545F3]/30 group-hover:bg-[#2545F3] transition-colors duration-300" />
                           </div>
                           
                           <div className="space-y-1">
-                            <span className="text-[10px] font-bold text-[#7342E2] dark:text-[#a882fa] tracking-wider uppercase">
+                            <span className="text-[10px] font-bold text-[#2545F3] dark:text-[#60a5fa] tracking-wider uppercase">
                               Step {idx + 1}
                             </span>
                             <h4 className="text-xs font-bold text-neutral-855 dark:text-neutral-200">
@@ -2007,7 +2007,7 @@ export default function ServicesPage({ theme: _theme, onGoHome }: { theme?: "lig
               {(activeService as any).faqs && (
                 <div className="space-y-4 pt-4">
                   <div className="flex items-center gap-2.5 pb-2 border-b border-neutral-100 dark:border-zinc-900">
-                    <BookOpen className="w-5 h-5 text-[#7342E2]" />
+                    <BookOpen className="w-5 h-5 text-[#2545F3]" />
                     <h3 className="text-sm font-bold text-neutral-855 dark:text-neutral-200 uppercase tracking-wider">
                       Frequently Asked Questions
                     </h3>
