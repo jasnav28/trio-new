@@ -199,10 +199,10 @@ export function AetherHero({ theme, scrollToSection }: AetherHeroProps) {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100/80 border border-slate-200 dark:bg-slate-900/60 dark:border-slate-800/80 mb-8 backdrop-blur-sm"
           >
             <div className="flex -space-x-2">
-              <div className="w-5 h-5 rounded-full bg-blue-600 border border-slate-950 flex items-center justify-center text-[8px] font-bold text-white">G</div>
-              <div className="w-5 h-5 rounded-full bg-cyan-600 border border-slate-950 flex items-center justify-center text-[8px] font-bold text-white">S</div>
-              <div className="w-5 h-5 rounded-full bg-indigo-600 border border-slate-950 flex items-center justify-center text-[8px] font-bold text-white">M</div>
-              <div className="w-5 h-5 rounded-full bg-emerald-600 border border-slate-950 flex items-center justify-center text-[8px] font-bold text-white">P</div>
+              <img src="/f1.png" alt="Reviewer 1" className="w-6 h-6 rounded-full object-cover border-2 border-slate-950" />
+              <img src="/f2.png" alt="Reviewer 2" className="w-6 h-6 rounded-full object-cover border-2 border-slate-950" />
+              <img src="/f3.png" alt="Reviewer 3" className="w-6 h-6 rounded-full object-cover border-2 border-slate-950" />
+              <img src="/f4.png" alt="Reviewer 4" className="w-6 h-6 rounded-full object-cover border-2 border-slate-950" />
             </div>
             <div className="flex gap-0.5 text-yellow-400">
               <Star className="w-3 h-3 fill-current" />
@@ -212,7 +212,7 @@ export function AetherHero({ theme, scrollToSection }: AetherHeroProps) {
               <Star className="w-3 h-3 fill-current" />
             </div>
             <span className="text-[11px] font-semibold text-slate-600 dark:text-slate-300">
-              4.5/5 (20K+ Reviews)
+              4.5/5 (10K+ Reviews)
             </span>
           </motion.div>
 
@@ -402,7 +402,7 @@ export function AetherHero({ theme, scrollToSection }: AetherHeroProps) {
                 <Star className="w-3.5 h-3.5 fill-current" />
               </div>
               <div className="text-xs font-bold text-white">Google Reviews</div>
-              <div className="text-[10px] text-slate-400">4.5/5 (20K+ Reviews)</div>
+              <div className="text-[10px] text-slate-400">4.5/5 (10K+ Reviews)</div>
             </div>
           </div>
         </div>
