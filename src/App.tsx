@@ -22,10 +22,8 @@ function App() {
       if (savedTheme === 'light' || savedTheme === 'dark') {
         return savedTheme;
       }
-      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      return systemPrefersDark ? 'dark' : 'light';
     }
-    return 'light';
+    return 'dark';
   });
 
   useEffect(() => {
