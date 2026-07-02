@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, Clock, Users, ShieldCheck, HeadphonesIcon, Timer, IndianRupee, Briefcase, Building2, FileText, ArrowRight } from 'lucide-react';
 
@@ -63,7 +62,7 @@ const bottomBadges = [
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: (i: number) => ({
-    opacity: 1, y: 0, transition: { duration: 0.6, delay: i * 0.1, ease: 'easeOut' }
+    opacity: 1, y: 0, transition: { duration: 0.6, delay: i * 0.1, ease: 'easeOut' as const }
   })
 };
 

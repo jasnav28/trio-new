@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { MessageSquare, CalendarCheck } from 'lucide-react';
+import { CalendarCheck } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 export function FloatingCTA() {

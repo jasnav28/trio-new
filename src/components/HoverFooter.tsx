@@ -128,9 +128,6 @@ export function HoverFooter({ scrollToSection }: { scrollToSection?: (id: any) =
                     >
                       {link.label}
                     </a>
-                    {link.pulse && (
-                      <span className="absolute top-1.5 ml-1 w-2 h-2 rounded-full bg-[#3ca2fa] animate-pulse"></span>
-                    )}
                   </li>
                 ))}
               </ul>

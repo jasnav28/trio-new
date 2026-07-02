@@ -13,7 +13,7 @@ interface CalendarDayProps {
   onClick?: () => void;
 }
 
-const CalendarDay: React.FC<CalendarDayProps> = ({ day, isHeader, isToday, isSelected, onClick }) => {
+const CalendarDay: React.FC<CalendarDayProps> = ({ day, isHeader, isSelected, onClick }) => {
   const highlight = !isHeader && isSelected;
   return (
     <div

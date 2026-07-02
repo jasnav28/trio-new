@@ -1,6 +1,5 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { Users, Award, Briefcase, Clock, ShieldCheck, User, Lightbulb, Handshake, TrendingUp, Target } from 'lucide-react';
+import { ShieldCheck, User, Lightbulb, Handshake, TrendingUp, Target } from 'lucide-react';
 
 const values = [
   { icon: ShieldCheck, title: 'Integrity', desc: 'We act with honesty and transparency' },
@@ -13,7 +12,7 @@ const values = [
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
   visible: (i: number) => ({
-    opacity: 1, y: 0, transition: { duration: 0.6, delay: i * 0.1, ease: 'easeOut' }
+    opacity: 1, y: 0, transition: { duration: 0.6, delay: i * 0.1, ease: 'easeOut' as const }
   })
 };
 
@@ -44,7 +43,9 @@ export function AboutSection() {
           <motion.h2 custom={1} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold leading-[1.15] text-[#0F172A] mb-4">
             Partnering in Compliance.<br />
             Empowering <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2563EB] to-[#60A5FA]">Growth.</span>
-          </mo          <motion.div custom={2} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="w-16 h-1.5 bg-gradient-to-r from-[#2563EB] to-[#93C5FD] rounded-full mb-8" />
+          </motion.h2>
+
+          <motion.div custom={2} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="w-16 h-1.5 bg-gradient-to-r from-[#2563EB] to-[#93C5FD] rounded-full mb-8" />
 
           <motion.p custom={3} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-base md:text-lg text-slate-600 leading-relaxed mb-6 font-medium">
             We are a team of compliance experts, legal professionals, and industry specialists dedicated to simplifying regulatory complexities for businesses of all sizes.
@@ -53,7 +54,7 @@ export function AboutSection() {
           <motion.p custom={4} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-base md:text-lg text-slate-600 leading-relaxed mb-12">
             From startup registration to ongoing compliance management, we ensure your business stays compliant, so you can focus on what matters most—growing your business.
           </motion.p>
-        </div>      </div>
+        </div>
 
         {/* ── RIGHT COLUMN ── */}
         <div className="flex flex-col relative">

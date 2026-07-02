@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Shield, ArrowRight, Grid, Users, Star, HeadphonesIcon, Rocket, FileText, BarChart2, Search } from 'lucide-react';
+import { Shield, ArrowRight, Users, Star, HeadphonesIcon, Rocket, FileText, BarChart2, Search } from 'lucide-react';
 import { CATEGORIES_DATA } from './ServicesPage';
 
 interface TrioTaxHeroProps {
@@ -12,7 +12,7 @@ const item = {
   hidden: { opacity: 0, y: 20 },
   visible: (i: number) => ({
     opacity: 1, y: 0,
-    transition: { duration: 0.5, ease: 'easeOut', delay: i * 0.1 },
+    transition: { duration: 0.5, ease: 'easeOut' as const, delay: i * 0.1 },
   }),
 };
 

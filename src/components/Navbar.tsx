@@ -101,7 +101,7 @@ interface NavbarProps {
   scrollToSection: (id: View) => void;
 }
 
-export function Navbar({ theme, setTheme, scrollToSection }: NavbarProps) {
+export function Navbar({ scrollToSection }: NavbarProps) {
   const [activeMenuValue, setActiveMenuValue] = useState<string>("");
   const [activeCategory, setActiveCategory] = useState<string>('company-registration');
   const [hoveredSubService, setHoveredSubService] = useState<string | null>(null);
