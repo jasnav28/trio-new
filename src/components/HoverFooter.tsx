@@ -32,26 +32,18 @@ export function HoverFooter({ scrollToSection }: { scrollToSection?: (id: any) =
   // Footer link data
   const footerLinks = [
     {
-      title: "Product Features",
+      title: "Services",
       links: [
-        { label: "Vault Security", href: "#hero" },
-        { label: "Vault Plans", href: "#bento" },
-        { label: "Calculator", href: "#calculator" },
-        { label: "Developer API", href: "#" },
+        { label: "Company Registration", href: "#services" },
+        { label: "GST Registration", href: "#services" },
+        { label: "Trademark Filing", href: "#services" },
+        { label: "Tax & Compliance", href: "#services" },
+        { label: "Startup Advisory", href: "#services" },
+        { label: "Legal Drafting", href: "#services" },
+        { label: "Accounting Setup", href: "#services" },
+        { label: "Payroll Processing", href: "#services" },
       ],
-    },
-    {
-      title: "Helpful Links",
-      links: [
-        { label: "FAQs", href: "#" },
-        { label: "Support", href: "#" },
-        {
-          label: "Live Chat",
-          href: "#",
-          pulse: true,
-        },
-      ],
-    },
+    }
   ];
 
   // Contact info data
@@ -93,7 +85,7 @@ export function HoverFooter({ scrollToSection }: { scrollToSection?: (id: any) =
   return (
     <footer className="bg-[#0F0F11] dark:bg-black text-gray-400 relative h-full w-full overflow-hidden flex flex-col justify-between pt-12 pb-6 px-4 md:px-8">
       <div className="max-w-7xl mx-auto w-full z-40 relative px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-16 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-8 lg:gap-16 pb-12">
           {/* Brand section */}
           <div className="flex flex-col space-y-4">
             <div className="flex items-center space-x-3">

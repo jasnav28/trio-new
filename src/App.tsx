@@ -2,14 +2,17 @@ import { useState, useEffect } from 'react';
 
 import { Navbar } from '@/components/Navbar';
 import { HoverFooter } from '@/components/HoverFooter';
-import { HeroSectionDemo } from '@/components/HeroSectionDemo';
+import { AboutSection } from '@/components/AboutSection';
 // import { StrengthsRevealSection } from '@/components/StrengthsRevealSection';
 import ProjectCalculator from '@/components/ProjectCalculator';
 import { ToastProvider } from '@/components/ui/toaster';
-import { AetherHero } from '@/components/AetherHero';
-import { ContactSection } from '@/components/ContactSection';
+import { TrioTaxHero } from '@/components/TrioTaxHero';
+import { CtaSection } from '@/components/CtaSection';
+
 import { MapSection } from '@/components/MapSection';
 import ServicesPage from '@/components/ServicesPage';
+import { FloatingCTA } from '@/components/FloatingCTA';
+import { PricingSection } from '@/components/PricingSection';
 
 type View = 'hero' | 'about' | 'strengths' | 'contact';
 
@@ -23,7 +26,7 @@ function App() {
         return savedTheme;
       }
     }
-    return 'dark';
+    return 'light';
   });
 
   useEffect(() => {
@@ -137,6 +140,7 @@ function App() {
     <ToastProvider>
       <div className="min-h-screen w-full scroll-smooth bg-white dark:bg-black text-gray-900 dark:text-gray-100 transition-colors duration-300 select-none">
         <Navbar theme={theme} setTheme={setTheme} scrollToSection={scrollToSection} />
+        <FloatingCTA />
 
         {currentPage === 'calculator' ? (
           <>
@@ -150,18 +154,7 @@ function App() {
               <HoverFooter scrollToSection={scrollToSection} />
             </section>
           </>
-        ) : currentPage === 'about-us' ? (
-          <>
-            <div className="pt-24 min-h-[calc(100vh-80px)]">
-              <HeroSectionDemo />
-            </div>
-            {/* Footer Section */}
-            <section 
-              className="relative h-screen w-full bg-[#0F0F11] dark:bg-black text-white transition-colors duration-300"
-            >
-              <HoverFooter scrollToSection={scrollToSection} />
-            </section>
-          </>
+
         ) : currentPage === 'services' ? (
           <>
             <div className="pt-24 min-h-[calc(100vh-80px)]">
@@ -183,10 +176,18 @@ function App() {
             {/* Hero Section */}
             <section 
               id="hero" 
-              className="relative min-h-screen w-full flex flex-col justify-between overflow-hidden bg-white dark:bg-black text-black dark:text-white"
+              className="relative h-[80vh] w-full overflow-hidden bg-[#0d0d0d]"
             >
-              <AetherHero theme={theme} scrollToSection={scrollToSection} />
+              <TrioTaxHero theme={theme} scrollToSection={scrollToSection} />
             </section>
+
+            {/* About Us Section */}
+            <section id="about" className="relative w-full">
+              <AboutSection />
+            </section>
+
+            {/* Pricing Section */}
+            <PricingSection />
 
 
 
@@ -199,8 +200,9 @@ function App() {
               </section>
               */}
 
-            {/* Contact Us Section */}
-            <ContactSection theme={theme} />
+            {/* CTA Section */}
+            <CtaSection theme={theme} />
+
 
             {/* Office Locations Map Section */}
             <MapSection theme={theme} />

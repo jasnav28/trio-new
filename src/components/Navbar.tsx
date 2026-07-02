@@ -5,7 +5,6 @@ import {
   Menu as MenuIcon, 
   X as XIcon
 } from 'lucide-react';
-import Switch from '@/components/ui/switch';
 import { Button } from '@/components/ui/button';
 import {
   NavigationMenu,
@@ -107,6 +106,16 @@ export function Navbar({ theme, setTheme, scrollToSection }: NavbarProps) {
   const [activeCategory, setActiveCategory] = useState<string>('company-registration');
   const [hoveredSubService, setHoveredSubService] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [currentTime, setCurrentTime] = useState<Date | null>(null);
+  const [showDevModal, setShowDevModal] = useState(false);
+
+  useEffect(() => {
+    setCurrentTime(new Date());
+    const timer = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     setHoveredSubService(null);
@@ -147,12 +156,9 @@ export function Navbar({ theme, setTheme, scrollToSection }: NavbarProps) {
           />
         )}
       </AnimatePresence>
-      <div className={cn(
-        "fixed top-0 left-0 right-0 z-50 w-full transition-all duration-500 ease-in-out",
-        isScrolled 
-          ? "bg-white/95 dark:bg-black/95 backdrop-blur-md border-b border-neutral-200/80 dark:border-neutral-800/80 shadow-md"
-          : "bg-transparent border-transparent shadow-none"
-      )}>
+      <div className="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-500 ease-in-out"
+        style={isScrolled ? { background: 'rgba(13,13,13,0.97)', backdropFilter: 'blur(12px)', borderBottom: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 2px 24px 0 rgba(0,0,0,0.4)' } : {}}
+      >
         <NavigationMenu 
           className="w-full max-w-none" 
           viewport={true}
@@ -169,15 +175,12 @@ export function Navbar({ theme, setTheme, scrollToSection }: NavbarProps) {
               "flex items-center justify-between gap-4 transition-all duration-500 ease-in-out relative",
               isScrolled
                 ? "h-16 w-full max-w-6xl mx-auto px-6 md:px-8 rounded-none bg-transparent border-transparent shadow-none"
-                : "h-14 mt-4 w-[calc(100%-2rem)] max-w-6xl mx-auto px-6 rounded-full bg-black/35 dark:bg-white/[0.05] backdrop-blur-md border border-black/15 dark:border-white/15 shadow-[0_8px_32px_0_rgba(0,0,0,0.12)]"
+                : "h-14 mt-4 w-[calc(100%-2rem)] max-w-6xl mx-auto px-6 rounded-full bg-black/60 backdrop-blur-md border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]"
             )}
           >
             <div className="flex items-center gap-3">
               <Logo />
-              <span className={cn(
-                "font-sans text-sm font-extrabold tracking-wider hidden sm:inline-block uppercase transition-colors duration-500",
-                isScrolled ? "text-neutral-900 dark:text-neutral-200" : "text-white dark:text-neutral-200"
-              )}>
+              <span className="font-sans text-sm font-extrabold tracking-wider hidden sm:inline-block uppercase text-white">
                 TRIOTAX
               </span>
             </div>
@@ -186,12 +189,7 @@ export function Navbar({ theme, setTheme, scrollToSection }: NavbarProps) {
             <NavigationMenuList className="hidden lg:flex flex-1 items-center justify-center gap-1">
               <NavigationMenuItem>
                 <NavigationMenuLink 
-                  className={cn(
-                    "cursor-pointer font-semibold text-xs px-2.5 py-1.5 transition-colors duration-500",
-                    isScrolled 
-                      ? "text-neutral-800 dark:text-gray-300 hover:text-[#2545F3] dark:hover:text-[#60a5fa]" 
-                      : "text-white dark:text-gray-300 hover:text-[#2545F3] dark:hover:text-[#60a5fa]"
-                  )}
+                  className="cursor-pointer font-semibold text-xs px-2.5 py-1.5 text-white hover:text-[#2545F3] transition-colors duration-200"
                   onClick={() => scrollToSection('hero')}
                 >
                   Home
@@ -200,13 +198,8 @@ export function Navbar({ theme, setTheme, scrollToSection }: NavbarProps) {
 
               <NavigationMenuItem>
                 <NavigationMenuLink 
-                  className={cn(
-                    "cursor-pointer font-semibold text-xs px-2.5 py-1.5 transition-colors duration-500",
-                    isScrolled 
-                      ? "text-neutral-800 dark:text-gray-300 hover:text-[#2545F3] dark:hover:text-[#60a5fa]" 
-                      : "text-white dark:text-gray-300 hover:text-[#2545F3] dark:hover:text-[#60a5fa]"
-                  )}
-                  href="#about-us"
+                  className="cursor-pointer font-semibold text-xs px-2.5 py-1.5 text-white hover:text-[#2545F3] transition-colors duration-200"
+                  href="#about"
                 >
                   About Us
                 </NavigationMenuLink>
@@ -214,26 +207,19 @@ export function Navbar({ theme, setTheme, scrollToSection }: NavbarProps) {
 
               <NavigationMenuItem>
                 <NavigationMenuLink 
-                  className={cn(
-                    "cursor-pointer font-semibold text-xs px-2.5 py-1.5 transition-colors duration-500",
-                    isScrolled 
-                      ? "text-neutral-800 dark:text-gray-300 hover:text-[#2545F3] dark:hover:text-[#60a5fa]" 
-                      : "text-white dark:text-gray-300 hover:text-[#2545F3] dark:hover:text-[#60a5fa]"
-                  )}
-                  href="#services"
+                  className="cursor-pointer font-semibold text-xs px-2.5 py-1.5 text-white hover:text-[#2545F3] transition-colors duration-200"
+                  href="#pricing"
                 >
-                  Explore
+                  Pricing
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
               {/* Services Dropdown */}
               <NavigationMenuItem value="services">
-                <NavigationMenuTrigger className={cn(
-                  "font-semibold text-xs cursor-pointer bg-transparent hover:bg-transparent transition-colors duration-500",
-                  isScrolled 
-                    ? "text-neutral-800 dark:text-gray-300 hover:text-[#2545F3] dark:hover:text-[#60a5fa]" 
-                    : "text-white dark:text-gray-300 hover:text-[#2545F3] dark:hover:text-[#60a5fa]"
-                )}>
+                <NavigationMenuTrigger 
+                  className="font-semibold text-xs cursor-pointer bg-transparent hover:bg-transparent text-white hover:text-[#2545F3] transition-colors duration-200"
+                  onClick={() => { window.location.hash = '#services'; }}
+                >
                   Services
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -384,7 +370,10 @@ export function Navbar({ theme, setTheme, scrollToSection }: NavbarProps) {
                       ? "text-neutral-800 dark:text-gray-300 hover:text-[#2545F3] dark:hover:text-[#60a5fa]" 
                       : "text-white dark:text-gray-300 hover:text-[#2545F3] dark:hover:text-[#60a5fa]"
                   )}
-                  href="#calculator"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setShowDevModal(true);
+                  }}
                 >
                   Calculator
                 </NavigationMenuLink>
@@ -393,7 +382,14 @@ export function Navbar({ theme, setTheme, scrollToSection }: NavbarProps) {
 
             <div className="flex items-center gap-3 shrink-0">
               <div className="flex items-center">
-                <Switch checked={theme === 'light'} onCheckedChange={(isLight) => setTheme(isLight ? 'light' : 'dark')} />
+                {currentTime && (
+                  <span className={cn(
+                    "text-[10px] md:text-xs font-semibold mr-2 transition-colors duration-500",
+                    isScrolled ? "text-neutral-700 dark:text-neutral-300" : "text-white"
+                  )}>
+                    {currentTime.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' })} • {currentTime.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })}
+                  </span>
+                )}
               </div>
               
               {/* Mobile Menu */}
@@ -402,6 +398,45 @@ export function Navbar({ theme, setTheme, scrollToSection }: NavbarProps) {
           </div>
         </NavigationMenu>
       </div>
+
+      {/* Under Development Modal */}
+      <AnimatePresence>
+        {showDevModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/40 backdrop-blur-md p-4"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="bg-white dark:bg-neutral-900 p-8 rounded-3xl shadow-2xl max-w-sm w-full text-center relative border border-neutral-100 dark:border-neutral-800"
+            >
+              <button 
+                onClick={() => setShowDevModal(false)}
+                className="absolute top-4 right-4 text-neutral-400 hover:text-neutral-800 dark:hover:text-white transition-colors"
+              >
+                <XIcon className="w-5 h-5" />
+              </button>
+              <div className="w-16 h-16 bg-[#2545F3]/10 text-[#2545F3] rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path><path d="M12 12v9"></path><path d="m8 17 4 4 4-4"></path></svg>
+              </div>
+              <h3 className="text-xl font-bold text-neutral-900 dark:text-white mb-2">Coming Soon!</h3>
+              <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-6">
+                Our smart calculator is currently under development. Stay tuned for an easy way to calculate your compliance needs!
+              </p>
+              <Button 
+                onClick={() => setShowDevModal(false)}
+                className="w-full bg-[#2545F3] hover:bg-[#1b36c7] text-white rounded-xl"
+              >
+                Got it
+              </Button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

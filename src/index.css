@@ -7,6 +7,10 @@
   --font-sans: "Barlow", ui-sans-serif, system-ui, sans-serif;
   --font-dm-serif: "Instrument Serif", serif;
   
+  /* TRIOTAX brand primary - blue */
+  --color-primary: #2545F3;
+  --color-primary-foreground: #ffffff;
+  
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
   
@@ -27,6 +31,28 @@
       height: 0;
     }
   }
+}
+
+/* =========================================
+   shadcn-style CSS variables for HeroSection
+   =========================================
+*/
+:root {
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --muted-foreground: #64748b;
+  --primary: #2545F3;
+  --primary-foreground: #ffffff;
+  --border: #e2e8f0;
+}
+
+.dark {
+  --background: #000000;
+  --foreground: #f8fafc;
+  --muted-foreground: #94a3b8;
+  --primary: #2545F3;
+  --primary-foreground: #ffffff;
+  --border: #1e293b;
 }
 
 body {
